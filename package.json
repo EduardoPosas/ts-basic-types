@@ -1,0 +1,12 @@
+{
+  "name": "ts-basics-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsdev": "tsc app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
