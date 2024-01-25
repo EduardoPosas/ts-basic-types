@@ -1,53 +1,23 @@
 /**
- * Objects ts
- * 1. Type object: we need to be more specific
- * 2. Defining a key-type pairs
- * 3. Inferred types: let ts to infer types, values are assigned to object props
+ * Arrays
+ * 1. Can be mix typed o strict typed
+ * helps with the IDE autocompletion because of types
+ * 2. any[]: basically means "it doesn´t care about types"
+ * not recommended because it avoids types of ts
+ * mixed arrays are also inferred
  */
 
-// const user: object = {
-//   name: 'Alexander',
-//   age: 27
-// }
-
-// const user: {
-//   name: string,
-//   age: number
-// } = {
-//   name: 'alexander',
-//   age: 27
-// }
-
-const user = {
+const person = {
   name: 'Alexander',
-  age: 27
+  age: 27,
+  hobbies: ['soccer', 'dogs', 'programming'] // This prop is inferred array of strings string[]
 }
 
-console.log(user.age);
-// console.log(user.address); // cannot access to an unexisting prop 
+// array with multiple data types
+const activites: any[] = ['name', 2];
+console.log(activites[0]);
 
-/**
- * Nested Objects, also are inferred
- */
-
-const product = {
-  id: 'abc1',
-  price: 12.99,
-  tags: ['great-offer', 'hot-and-new'],
-  details: {
-    title: 'Red Carpet',
-    description: 'A great carpet - almost brand-new!'
-  }
+// we can iterate over the array values
+for (const hobby of person.hobbies) {
+  console.log(hobby.toUpperCase());
 }
-console.log(product.details.title);
-
-// explicitly typed
-// {
-//   id: string;
-//   price: number;
-//   tags: string[];
-//   details: {
-//     title: string;
-//     description: string;
-//   }
-// }
