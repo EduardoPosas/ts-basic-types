@@ -11,8 +11,8 @@
 // }
 
 // const user: {
-//   name: string,
-//   age: number
+//   name: string;
+//   age: number;
 // } = {
 //   name: 'alexander',
 //   age: 27
