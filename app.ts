@@ -1,29 +1,33 @@
-/** Literal Types
- * when we know the exact value or values that a variable could have
- * boolean is a case where just have two values, true or false
+/**
+ * Type aliases / Custom types
+ * Its common to want to use the same type more than once and refer to it by a single name
+ * It is a name fon any type 
  */
 
-let changingString = 'Hello'; // just a simple string type, it can be reasigned; not a literal value
-
-const constatnString = 'Hola'; // this just have one possible and known value (literal type representation)
-
-
-// By combining multiples literals into unions, you can express a much more useful concept
-function printText(s: string, alignment: 'left' | 'center' | 'right') { }
-
-printText('hola mundo', 'center'); // ok
-// printText('hola mundo', 'baseline'); // error
-
-
-// By combining with other non-literal types
-interface Options {
-  width: number
+type Point = {
+  x: number,
+  y: number
 }
 
-function configure(x: Options | 'auto') { }
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
 
-configure({ width: 100 }); //ok
-configure('auto'); // ok
-// configure('semi-auto'); // error
+printCoord({ x: 25, y: 50 });
 
+// use a type alias to name any type, it cold be a union also:
+type Id = number | string;
 
+// type alliases do not create versions of the same type, its just a name for custom types
+type UserInputSanitizedString = string;
+ 
+// function sanitizeInput(str: string): UserInputSanitizedString {
+//   return sanitize(str);
+// }
+ 
+// Create a sanitized input
+// let userInput = sanitizeInput(getInput());
+ 
+// Can still be re-assigned with a string though
+// userInput = "new input";
