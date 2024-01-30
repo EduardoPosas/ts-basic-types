@@ -1,47 +1,13 @@
-/**
- * Union Type
- * is a type formed form two or more other types , representing values that may be one of those types
- * ts only allow an operation if its valid for every member of the union
+/** Literal Types
+ * when we know the exact value or values that a variable could have
+ * boolean is a case where just have two values, true or false
  */
-// string | number 
-function printId(id) {
-    console.log('Your Id is' + id);
-}
-printId('78467'); // ok
-printId(4324234); // ok
-// printId({id: 1234}); // throws an error
-// can´t use methods of only a type string uses or only type number
-// function printIne(id: number | string) {
-//   console.log(id.toUppercase());
-// }
-// Narrow the code
-function printIne(ine) {
-    if (typeof ine === 'string') {
-        console.log(ine.toUpperCase()); // specific method of a type string
-    }
-    else {
-        console.log(ine); // ine of type number
-    }
-}
-printIne('abdhfyr');
-printIne('12343');
-// Another example of narrow
-function welcomePeople(x) {
-    if (Array.isArray(x)) {
-        // Here: 'x' is 'string[]'
-        console.log("Hello, " + x.join(" and "));
-    }
-    else {
-        // Here: 'x' is 'string'
-        console.log("Welcome lone traveler " + x);
-    }
-}
-welcomePeople(['alex', 'cara', 'cami']);
-welcomePeople('hailey');
-// When all the members in union have somthing in common
-// Return type is inferred as number[] | string
-function getFirstThree(x) {
-    return x.slice(0, 3);
-}
-console.log(getFirstThree([0, 1, 2, 3, 5]));
-console.log(getFirstThree('alexander'));
+var changingString = 'Hello'; // just a simple string type, it can be reasigned; not a literal value
+var constatnString = 'Hola'; // this just have one possible and known value (literal type representation)
+// By combining multiples literals into unions, you can express a much more useful concept
+function printText(s, alignment) { }
+printText('hola mundo', 'center'); // ok
+function configure(x) { }
+configure({ width: 100 }); //ok
+configure('auto'); // ok
+// configure('semi-auto'); // error
